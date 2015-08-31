@@ -1,0 +1,31 @@
+
+== Line Splitter For Streams
+This modules consumes a stream as it comes from a file and splits it into lines.
+The emited the line objects have the following form:
+
+.Line object example
+[source,json]
+----
+{
+  "lineNumber": 1,
+  "data": "any line data"
+}
+----
+
+=== Install
+[source,bash]
+----
+$ npm install stream-line-parser
+----
+
+=== Usage
+
+.Usage example
+[source,js]
+----
+
+
+----
+
+=== License
+BSD-2-Clause

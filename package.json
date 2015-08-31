@@ -1,0 +1,41 @@
+{
+  "name": "stream-line-parser",
+  "version": "1.0",
+  "description": "Splits a stream into lines.",
+  "main": "lib/line-parser.js",
+  "scripts": {
+    "cover": "node --harmony ./node_modules/istanbul-harmony/lib/cli.js cover --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --R spec --U exports test",
+    "doc": "jsdoc lib/*.js",
+    "test": "mocha --harmony test/*.js",
+    "ci-test-report": "mocha --harmony --reporter mocha-html-reporter test/*.js",
+    "postpublish-disabled": "semantic-release post",
+    "prepublish-disabled": "semantic-release pre",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darlenya/stream-line-parser.git"
+  },
+  "engines": {
+    "iojs": "2.0.0"
+  },
+  "keywords": [
+    "stream",
+    "line",
+    "parser"
+  ],
+  "devDependencies": {
+    "chai": "3.2.0",
+    "conventional-changelog-generator": "0.0.3",
+    "istanbul-harmony": "0.3.16",
+    "jsdoc": "^3.3.2",
+    "mocha": "2.2.5",
+    "mocha-html-reporter": "^0.0.1",
+    "semantic-release": "^4.1.1"
+  },
+  "author": {
+    "name": "Torsten Link",
+    "email": "torstelink@gmx.de"
+  },
+  "license": "BSD-2-Clause",
+}
