@@ -20,14 +20,8 @@ This module was inspired (mostly copied from ''csv-parser'' https://github.com/m
 $ npm install stream-line-parser
 ----
 
+
 === Usage
-
-.Usage example
-[source,js]
-----
-
-
-----
 
 .Options for the parser
 [source,js]
@@ -43,6 +37,39 @@ $ npm install stream-line-parser
 <2> (Optional, default is 'newLine' or 'carriage return + newLine'. This will automatically detected) A custom line separator.
 <3> (Optional, default is '"'). The quote character to use. Only needed if ''allow_new_line_in_cell'' is true.
 <4> (Optional, default=true) if set to true, complete empty lines will be skipped, but the line number will be incremented.
+
+
+.Usage example
+[source,js]
+----
+const fs = require('fs');
+const lp = require('stream-line-parser');
+
+let parser = lp({
+  "allow_new_line_in_cell" : true,
+	"line_separator": "\n",
+  "quote_char" : '"',
+  "skip_empty_lines" : true
+});
+
+fs.createReadStream('filename.csv').pipe(parser);
+
+----
+
+This will read the file 'filename.csv'. The stream will be piped to the parser which
+will split the stream in to objects. The parser emits an object stream.
+
+.Object Stream example
+[source,js]
+----
+{
+  "lineNumber": 0,  // <1>
+  "data": "a,b,c"   // <2>
+}
+----
+<1> The line number. After each new line the number will be incremented. Even for empty lines.
+<2> The data of the line itself.
+
 
 === License
 BSD-2-Clause

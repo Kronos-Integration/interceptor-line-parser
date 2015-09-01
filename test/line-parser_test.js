@@ -11,34 +11,287 @@ const should = chai.should();
 const fs = require('fs');
 const read = fs.createReadStream;
 const path = require('path');
+const eol = require('os').EOL;
 
 const lp = require('../lib/line-parser');
 
-describe('attributes', function() {
-	it('has a description', function(done) {
+describe('split in lines', function () {
 
-		collect('simple_file.csv', verify);
+	it('empty lines skiped', function (done) {
+		collect('empty_lines.csv', verify);
 
 		function verify(err, lines) {
-			assert.false(err);
-
+			assert.notOk(err);
 			assert.deepEqual(lines[0], {
 				"lineNumber": 0,
 				"data": "a,b,c"
 			});
 			assert.deepEqual(lines[1], {
-				"lineNumber": 0,
+				"lineNumber": 2,
 				"data": "as,ä,wd"
 			});
 			assert.deepEqual(lines[2], {
-				"lineNumber": 0,
+				"lineNumber": 5,
 				"data": "ll,ö,sde"
 			});
 			done();
 		}
-
-
 	});
+
+	it('empty lines NOT skiped', function (done) {
+		collect('empty_lines.csv', {
+			"skip_empty_lines": false
+		}, verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a,b,c"
+			});
+			assert.deepEqual(lines[1], {
+				"lineNumber": 1,
+				"data": ""
+			});
+			assert.deepEqual(lines[2], {
+				"lineNumber": 2,
+				"data": "as,ä,wd"
+			});
+			assert.deepEqual(lines[3], {
+				"lineNumber": 3,
+				"data": ""
+			});
+			assert.deepEqual(lines[4], {
+				"lineNumber": 4,
+				"data": ""
+			});
+			assert.deepEqual(lines[5], {
+				"lineNumber": 5,
+				"data": "ll,ö,sde"
+			});
+			done();
+		}
+	});
+
+
+	it('line break with custom quotes', function (done) {
+		collect('linebreak_in_custom_quotes.csv', {
+			"quote_char": "'",
+			"allow_new_line_in_cell": true
+		}, verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a,b,c"
+			});
+			assert.deepEqual(lines[1], {
+				"lineNumber": 1,
+				"data": "'a1" + eol + "a2',bbbb,cccc"
+			});
+			assert.deepEqual(lines[2], {
+				"lineNumber": 2,
+				"data": "d,e,f"
+			});
+			done();
+		}
+	});
+
+	it('line break with custom quotes BUT NO line breaks in cells', function (done) {
+		collect('linebreak_in_custom_quotes.csv', {
+			"quote_char": "'"
+		}, verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a,b,c"
+			});
+			assert.deepEqual(lines[1], {
+				"lineNumber": 1,
+				"data": "'a1"
+			});
+			assert.deepEqual(lines[2], {
+				"lineNumber": 2,
+				"data": "a2',bbbb,cccc"
+			});
+			assert.deepEqual(lines[3], {
+				"lineNumber": 3,
+				"data": "d,e,f"
+			});
+			done();
+		}
+	});
+
+	it('line break in quotes', function (done) {
+		collect('linebreak_in_quotes.csv', {
+				"allow_new_line_in_cell": true
+			},
+			verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a,b,c"
+			});
+			assert.deepEqual(lines[1], {
+				"lineNumber": 1,
+				"data": '"a1' + eol + 'a2",bbbb,cccc'
+			});
+			assert.deepEqual(lines[2], {
+				"lineNumber": 2,
+				"data": "d,e,f"
+			});
+			done();
+		}
+	});
+
+	it('line break in quotes BUT NO line breaks in cells', function (done) {
+		collect('linebreak_in_quotes.csv', verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a,b,c"
+			});
+			assert.deepEqual(lines[1], {
+				"lineNumber": 1,
+				"data": '"a1'
+			});
+			assert.deepEqual(lines[2], {
+				"lineNumber": 2,
+				"data": 'a2",bbbb,cccc'
+			});
+			assert.deepEqual(lines[3], {
+				"lineNumber": 3,
+				"data": "d,e,f"
+			});
+			done();
+		}
+	});
+
+	it('only one line', function (done) {
+		collect('only_one_line.csv', verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a,b,c"
+			});
+			done();
+		}
+	});
+
+	it('only one char', function (done) {
+		collect('only_one_char.csv', verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a"
+			});
+			assert.deepEqual(lines[1], {
+				"lineNumber": 1,
+				"data": "b"
+			});
+			done();
+		}
+	});
+
+
+	it('simple file NL', function (done) {
+		collect('simple_file.csv', verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a,b,c"
+			});
+			assert.deepEqual(lines[1], {
+				"lineNumber": 1,
+				"data": "as,ä,wd"
+			});
+			assert.deepEqual(lines[2], {
+				"lineNumber": 2,
+				"data": "ll,ö,sde"
+			});
+			done();
+		}
+	});
+
+	it('simple file CR', function (done) {
+		collect('simple_file.csv', verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a,b,c"
+			});
+			assert.deepEqual(lines[1], {
+				"lineNumber": 1,
+				"data": "as,ä,wd"
+			});
+			assert.deepEqual(lines[2], {
+				"lineNumber": 2,
+				"data": "ll,ö,sde"
+			});
+			done();
+		}
+	});
+
+	it('simple file CR NL', function (done) {
+		collect('simple_file.csv', verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a,b,c"
+			});
+			assert.deepEqual(lines[1], {
+				"lineNumber": 1,
+				"data": "as,ä,wd"
+			});
+			assert.deepEqual(lines[2], {
+				"lineNumber": 2,
+				"data": "ll,ö,sde"
+			});
+			done();
+		}
+	});
+
+	it('simple file own line break char', function (done) {
+		collect('simple_file_own_delimiter.csv', {
+			"line_separator": "|"
+		}, verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a,b,c"
+			});
+			assert.deepEqual(lines[1], {
+				"lineNumber": 1,
+				"data": "as,ä,wd"
+			});
+			assert.deepEqual(lines[2], {
+				"lineNumber": 2,
+				"data": "ll,ö,sde" + eol
+			});
+			done();
+		}
+	});
+
+
 });
 
 
@@ -56,13 +309,13 @@ function collect(file, opts, cb) {
 	var lines = [];
 	var parser = lp(opts);
 	data.pipe(parser)
-		.on('data', function(line) {
+		.on('data', function (line) {
 			lines.push(line);
 		})
-		.on('error', function(err) {
+		.on('error', function (err) {
 			cb(err, lines);
 		})
-		.on('end', function() {
+		.on('end', function () {
 			cb(false, lines);
 		});
 	return parser;
