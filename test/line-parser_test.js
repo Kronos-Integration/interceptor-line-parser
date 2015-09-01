@@ -14,6 +14,35 @@ const path = require('path');
 
 const lp = require('../lib/line-parser');
 
+describe('attributes', function() {
+	it('has a description', function(done) {
+
+		collect('simple_file.csv', verify);
+
+		function verify(err, lines) {
+			assert.false(err);
+
+			assert.deepEqual(lines[0], {
+				"lineNumber": 0,
+				"data": "a,b,c"
+			});
+			assert.deepEqual(lines[1], {
+				"lineNumber": 0,
+				"data": "as,ä,wd"
+			});
+			assert.deepEqual(lines[2], {
+				"lineNumber": 0,
+				"data": "ll,ö,sde"
+			});
+			done();
+		}
+
+
+	});
+});
+
+
+
 /**
  * Returns the path to the given test file name.
  */
@@ -25,15 +54,15 @@ function collect(file, opts, cb) {
 	if (typeof opts === 'function') return collect(file, null, opts);
 	var data = read(fixture(file));
 	var lines = [];
-	var parser = csv(opts);
+	var parser = lp(opts);
 	data.pipe(parser)
-		.on('data', function (line) {
+		.on('data', function(line) {
 			lines.push(line);
 		})
-		.on('error', function (err) {
+		.on('error', function(err) {
 			cb(err, lines);
 		})
-		.on('end', function () {
+		.on('end', function() {
 			cb(false, lines);
 		});
 	return parser;
