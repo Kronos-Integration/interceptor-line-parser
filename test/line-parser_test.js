@@ -17,6 +17,29 @@ const lp = require('../lib/line-parser');
 
 describe('split in lines', function () {
 
+	it('big file', function (done) {
+		collect('big_file.csv', verify);
+
+		function verify(err, lines) {
+			assert.notOk(err);
+
+			assert.equal(lines.length, 49);
+
+			assert.deepEqual(lines[19], {
+				"lineNumber": 19,
+				"data": "4711-1;1986856389;antoine-pierre.jenina@db.com;antoine-pierre;jenina;25.09.2014 13:04:32;personal;antoine-pierre.jenina@db.com;[5176] - Resource ADND /->/ 7zX.app|[5022] - Resource F505 /->/ Apple_Configurator.app"
+			});
+
+			assert.deepEqual(lines[43], {
+				"lineNumber": 43,
+				"data": "4711-1;1986856389;antoine-pierre.jenina@db.com;antoine-pierre;jenina;25.09.2014 13:04:32;personal;antoine-pierre.jenina@db.com;[5176] - Resource ADND /->/ 7zX.app|[5022] - Resource F505 /->/ Apple_Configurator.app"
+			});
+
+			done();
+		}
+	});
+
+
 	it('empty lines skiped', function (done) {
 		collect('empty_lines.csv', verify);
 
