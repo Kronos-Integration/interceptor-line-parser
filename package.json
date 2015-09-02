@@ -1,6 +1,5 @@
 {
   "name": "stream-line-parser",
-  "version": "1.0.0",
   "description": "Splits a stream into lines.",
   "main": "lib/line-parser.js",
   "scripts": {
