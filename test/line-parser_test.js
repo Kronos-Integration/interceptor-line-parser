@@ -15,7 +15,7 @@ const eol = require('os').EOL;
 
 const lp = require('../lib/line-parser');
 
-describe('split in lines', function () {
+describe('stream-line-parser: split in lines', function () {
 
 	it('big file', function (done) {
 		collect('big_file.csv', verify);
