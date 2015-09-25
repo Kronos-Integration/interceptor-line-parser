@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/darlenya/stream-line-parser.git"
+    "url": "git+https://github.com/Kronos-Integration/stream-line-parser.git"
   },
   "bugs": {
-    "url": "https://github.com/darlenya/stream-line-parser/issues"
+    "url": "https://github.com/Kronos-Integration/stream-line-parser/issues"
   },
-  "homepage": "https://github.com/darlenya/stream-line-parser#readme",
+  "homepage": "https://github.com/Kronos-Integration/stream-line-parser#readme",
   "engines": {
     "iojs": "2.0.0"
   },
