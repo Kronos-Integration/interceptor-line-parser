@@ -1,0 +1,70 @@
+== Line Splitter For Streams
+This modules consumes a stream as it comes from a file and splits it into lines.
+The emitted line objects have the following form:
+
+.Line object example
+[source,json]
+----
+{
+  "lineNumber": 1,
+  "data": "any line data"
+}
+----
+
+This module was inspired (mostly copied from ''csv-parser'' https://github.com/mafintosh/csv-parser)
+
+=== Install
+[source,bash]
+----
+$ npm install stream-line-parser
+----
+
+
+=== Usage
+
+.Options for the parser
+[source,js]
+----
+{
+  "allow_new_line_in_cell" : true, // <1>
+  "line_separator" : "\n",         // <2>
+  "quote_char" : '"',              // <3>
+  "skip_empty_lines" : true        // <4>
+}
+----
+<1> (Optional, default=false) If new lines are allowed in a line, it must be quoted.
+<2> (Optional, default is 'newLine' or 'carriage return + newLine'. This will automatically detected) A custom line separator.
+<3> (Optional, default is '"'). The quote character to use. Only needed if ''allow_new_line_in_cell'' is true.
+<4> (Optional, default=true) if set to true, complete empty lines will be skipped, but the line number will be incremented.
+
+
+.Usage example
+[source,js]
+----
+const fs = require('fs');
+const lp = require('stream-line-parser');
+
+let parser = lp({
+  "allow_new_line_in_cell" : true,
+	"line_separator": "\n",
+  "quote_char" : '"',
+  "skip_empty_lines" : true
+});
+
+fs.createReadStream('filename.csv').pipe(parser);
+
+----
+
+This will read the file 'filename.csv'. The stream will be piped to the parser which
+will split the stream in to objects. The parser emits an object stream.
+
+.Object Stream example
+[source,js]
+----
+{
+  "lineNumber": 0,  // <1>
+  "data": "a,b,c"   // <2>
+}
+----
+<1> The line number. After each new line the number will be incremented. Even for empty lines.
+<2> The data of the line itself.
