@@ -23,7 +23,7 @@ const stepMock = {
 const checkProperties = {};
 
 
-describe('Message Handler', function () {
+describe('Interceptor test', function () {
 
   it('Create', function () {
     const endpoint = {
