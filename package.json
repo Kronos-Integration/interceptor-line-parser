@@ -1,5 +1,5 @@
 {
-  "name": "stream-line-parser",
+  "name": "kronos-interceptor-line-parser",
   "version": "0.0.0",
   "description": "Splits a stream into lines.",
   "main": "lib/line-parser.js",
@@ -11,33 +11,36 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kronos-Integration/stream-line-parser.git"
+    "url": "git+https://github.com/Kronos-Integration/kronos-interceptor-line-parser.git"
   },
   "bugs": {
-    "url": "https://github.com/Kronos-Integration/stream-line-parser/issues"
+    "url": "https://github.com/Kronos-Integration/kronos-interceptor-line-parser/issues"
   },
-  "homepage": "https://github.com/Kronos-Integration/stream-line-parser#readme",
+  "homepage": "https://github.com/Kronos-Integration/kronos-interceptor-line-parser#readme",
   "release": {
     "debug": false
   },
   "dependencies": {
-    "expression-expander": "3.0.0",
-    "scope-reporter": "2.3.0"
+    "kronos-interceptor": "^1.3.0"
   },
   "devDependencies": {
     "chai": "3.4.1",
     "istanbul": "^0.4.0",
     "jsdoc": "3.4.0",
+    "kronos-test-interceptor": "^1.6.1",
     "mocha": "2.3.4",
     "semantic-release": "4.3.5"
   },
-  "contributors": [{
-    "name": "Torsten Link",
-    "email": "torstenlink@gmx.de"
-  }, {
-    "name": "Markus Felten",
-    "email": "markus.felten@gmx.de"
-  }],
+  "contributors": [
+    {
+      "name": "Torsten Link",
+      "email": "torstenlink@gmx.de"
+    },
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
   "license": "BSD-2-Clause",
   "engines": {
     "node": ">=4.2.1"
