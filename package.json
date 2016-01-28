@@ -24,7 +24,7 @@
     "kronos-interceptor": "^1.4.0"
   },
   "devDependencies": {
-    "chai": "3.4.1",
+    "chai": "3.5.0",
     "istanbul": "^0.4.0",
     "jsdoc": "3.4.0",
     "kronos-test-interceptor": "^1.7.0",
