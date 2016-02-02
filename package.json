@@ -21,7 +21,7 @@
     "debug": false
   },
   "dependencies": {
-    "kronos-interceptor": "^1.4.0"
+    "kronos-interceptor": "^2.0.0"
   },
   "devDependencies": {
     "chai": "3.5.0",
