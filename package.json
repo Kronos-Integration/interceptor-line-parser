@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "cover": "node ./node_modules/istanbul/lib/cli.js cover --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --R spec --U exports tests/*_test.js",
-    "doc": "jsdoc lib/*.js",
-    "test": "mocha tests/*_test.js",
+    "doc": "node ./node_modules/.bin/jsdoc lib/*.js",
+    "test": "node ./node_modules/.bin/mocha tests/*_test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kronos-Integration/kronos-interceptor-line-parser.git"
+    "url": "https://github.com/Kronos-Integration/kronos-interceptor-line-parser.git"
   },
   "bugs": {
     "url": "https://github.com/Kronos-Integration/kronos-interceptor-line-parser/issues"
@@ -26,7 +26,8 @@
     "jsdoc": "3.4.0",
     "kronos-test-interceptor": "^2.0.3",
     "mocha": "2.4.5",
-    "semantic-release": "6.2.1"
+    "semantic-release": "6.2.1",
+    "cz-conventional-changelog": "1.1.6"
   },
   "contributors": [
     {
@@ -40,12 +41,17 @@
   ],
   "license": "BSD-2-Clause",
   "engines": {
-    "node": ">=5"
+    "node": ">=6.1"
   },
   "keywords": [
     "kronos-interceptor",
     "stream",
     "line",
     "parser"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
