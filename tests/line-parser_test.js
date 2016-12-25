@@ -13,7 +13,7 @@ const read = fs.createReadStream;
 const path = require('path');
 const eol = require('os').EOL;
 
-const lp = require('../lib/line-parser');
+const lp = require('../src/line-parser');
 
 describe('stream-line-parser: split in lines', function () {
 
@@ -314,9 +314,7 @@ describe('stream-line-parser: split in lines', function () {
 		}
 	});
 
-
 });
-
 
 
 /**

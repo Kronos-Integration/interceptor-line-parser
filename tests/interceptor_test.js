@@ -11,13 +11,13 @@ const chai = require('chai'),
   assert = chai.assert,
   expect = chai.expect,
   should = chai.should(),
-  InterceptorUnderTest = require('../index').Interceptor,
+  InterceptorUnderTest = require('../dist/interceptor').LineParserInterceptor,
   MockReceiveInterceptor = require('kronos-test-interceptor').MockReceiveInterceptor;
 
 
 const stepMock = {
-  "name": "dummy step name",
-  "type": "dummy step type"
+  name: 'dummy step name',
+  type: 'dummy step type'
 };
 
 const checkProperties = {};
@@ -27,8 +27,8 @@ describe('Interceptor test', function () {
 
   it('Create', function () {
     const endpoint = {
-      "owner": stepMock,
-      "name": "gumboIn"
+      owner: stepMock,
+      name: 'gumboIn'
     };
     const messageHandler = new InterceptorUnderTest(checkProperties, endpoint);
     assert.ok(messageHandler);
@@ -36,12 +36,12 @@ describe('Interceptor test', function () {
 
   it('Send message', function (done) {
     const endpoint = {
-      "owner": stepMock,
-      "name": "gumboIn"
+      owner: stepMock,
+      name: 'gumboIn'
     };
 
     const sendMessage = {
-      "info": "first message"
+      info: 'first message'
     };
 
     const messageHandler = new InterceptorUnderTest(checkProperties, endpoint);
@@ -50,7 +50,7 @@ describe('Interceptor test', function () {
       assert.ok(request);
 
       assert.deepEqual(request, {
-        "info": "first message"
+        info: 'first message'
       });
       done();
     });

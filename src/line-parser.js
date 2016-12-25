@@ -180,6 +180,9 @@ class LineParser extends stream.Transform {
 	}
 }
 
-module.exports = function (opts) {
+
+function LineParserFactory(opts) {
 	return new LineParser(opts);
-};
+}
+
+module.exports = LineParserFactory;
