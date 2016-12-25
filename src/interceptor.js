@@ -1,8 +1,13 @@
 /* jslint node: true, esnext: true */
 'use strict';
 
-const Interceptor = require('kronos-interceptor').Interceptor;
-const parserFactory = require('./line-parser');
+
+const LineParserFactory = require('../src/line-parser');
+
+import {
+	Interceptor
+}
+from 'kronos-interceptor';
 
 /**
  * This interceptor cares about the handling of the messages.
@@ -16,7 +21,7 @@ class LineParserInterceptor extends Interceptor {
 
 	receive(request, oldRequest) {
 		if (request.payload) {
-			const streamFilter = parserFactory(this.config.config, true);
+			const streamFilter = LineParserFactory(this.config.config, true);
 			const stream = request.payload;
 			request.payload = stream.pipe(streamFilter);
 		}
@@ -24,4 +29,11 @@ class LineParserInterceptor extends Interceptor {
 	}
 }
 
-exports.Interceptor = LineParserInterceptor;
+function registerWithManager(manager) {
+	return manager.registerInterceptor(LineParserInterceptor);
+}
+
+export {
+	registerWithManager,
+	LineParserInterceptor
+};
