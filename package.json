@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Kronos-Integration/kronos-interceptor-line-parser#readme",
   "dependencies": {
-    "kronos-interceptor": "^2.4.8"
+    "kronos-interceptor": "^2.4.9"
   },
   "devDependencies": {
     "chai": "^3.5.0",
