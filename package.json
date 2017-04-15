@@ -34,8 +34,8 @@
     "semantic-release": "^6.3.6",
     "jsdoc-to-markdown": "^3.0.0",
     "markdown-doctest": "^0.9.1",
-    "rollup": "^0.41.4",
-    "nyc": "^10.1.2"
+    "rollup": "^0.41.6",
+    "nyc": "^10.2.0"
   },
   "contributors": [
     {
@@ -49,7 +49,7 @@
   ],
   "license": "BSD-2-Clause",
   "engines": {
-    "node": ">=6.9.4"
+    "node": ">=7.9.0"
   },
   "keywords": [
     "kronos-interceptor",
@@ -70,5 +70,10 @@
       "lcov"
     ],
     "report-dir": "./coverage"
+  },
+  "template": {
+    "repository": {
+      "url": "https://github.com/Kronos-Tools/npm-package-template.git"
+    }
   }
 }
