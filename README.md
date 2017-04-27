@@ -1,5 +1,5 @@
 [![npm](https://img.shields.io/npm/v/kronos-interceptor-line-parser.svg)](https://www.npmjs.com/package/kronos-interceptor-line-parser)
-[![Greenkeeper](https://badges.greenkeeper.io/Kronos-Integration/kronos-interceptor-line-parser)](https://greenkeeper.io/)
+[![Greenkeeper](https://badges.greenkeeper.io/Kronos-Integration/kronos-interceptor-line-parser.svg)](https://greenkeeper.io/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/Kronos-Integration/kronos-interceptor-line-parser)
 [![Build Status](https://secure.travis-ci.org/Kronos-Integration/kronos-interceptor-line-parser.png)](http://travis-ci.org/Kronos-Integration/kronos-interceptor-line-parser)
 [![bithound](https://www.bithound.io/github/Kronos-Integration/kronos-interceptor-line-parser/badges/score.svg)](https://www.bithound.io/github/Kronos-Integration/kronos-interceptor-line-parser)
