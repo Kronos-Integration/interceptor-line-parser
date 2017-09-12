@@ -50,10 +50,19 @@
   "engines": {
     "node": ">=8.4.0"
   },
-  "keywords": ["kronos-interceptor", "stream", "line", "parser"],
+  "keywords": [
+    "kronos-interceptor",
+    "stream",
+    "line",
+    "parser"
+  ],
   "nyc": {
-    "include": ["dist/**/*.js"],
-    "reporter": ["lcov"],
+    "include": [
+      "dist/**/*.js"
+    ],
+    "reporter": [
+      "lcov"
+    ],
     "report-dir": "./coverage"
   },
   "template": {
