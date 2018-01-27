@@ -42,7 +42,7 @@
     "semantic-release": "^12.2.5",
     "jsdoc-to-markdown": "^4.0.1",
     "markdown-doctest": "^0.9.1",
-    "rollup": "^0.55.0",
+    "rollup": "^0.55.1",
     "nyc": "^11.4.1"
   },
   "engines": {
