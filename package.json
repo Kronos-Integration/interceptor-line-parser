@@ -38,11 +38,11 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "kronos-test-interceptor": "^3.1.1",
-    "mocha": "^5.0.1",
+    "mocha": "^5.0.0",
     "semantic-release": "^13.1.4",
     "jsdoc-to-markdown": "^4.0.1",
     "markdown-doctest": "^0.9.1",
-    "rollup": "^0.56.0",
+    "rollup": "^0.56.1",
     "nyc": "^11.5.0"
   },
   "engines": {
