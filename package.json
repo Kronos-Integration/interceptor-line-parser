@@ -1,11 +1,9 @@
 {
-  "name": "kronos-interceptor-line-parser",
+  "name": "@kronos-integration/interceptor-line-parser",
   "version": "0.0.0-semantic-release",
-  "main": "dist/interceptor.js",
-  "module": "src/interceptor.js",
+  "main": "./src/interceptor.mjs",
   "description": "Splits a stream into lines.",
   "keywords": [
-    "npm-package-template",
     "kronos-interceptor",
     "stream",
     "line",
@@ -23,30 +21,16 @@
   ],
   "license": "BSD-2-Clause",
   "scripts": {
-    "cover": "nyc --temp-directory build/nyc npm test",
-    "doc": "./node_modules/.bin/jsdoc lib/*.js",
-    "docs": "jsdoc2md -l off -t doc/README.hbs -f src/*.js >README.md",
-    "precover": "rollup -c",
-    "prepare": "rollup -c",
-    "pretest": "rollup -c",
-    "test": "mocha tests/*-test.js",
-    "posttest": "markdown-doctest"
   },
   "dependencies": {
-    "kronos-interceptor": "^2.6.0"
+    "@kronos-integration/interceptor": "^9.1.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "jsdoc-to-markdown": "^5.0.3",
-    "kronos-test-interceptor": "^3.1.1",
-    "markdown-doctest": "^1.0.0",
-    "mocha": "^6.2.2",
-    "nyc": "^15.0.0",
-    "rollup": "^1.27.14",
+    "@kronos-integration/test-interceptor": "^7.0.3",
     "semantic-release": "^15.14.0"
   },
   "engines": {
-    "node": ">=12.14.0"
+    "node": ">=14.2.0"
   },
   "repository": {
     "type": "git",
@@ -55,22 +39,5 @@
   "bugs": {
     "url": "https://github.com/Kronos-Integration/kronos-interceptor-line-parser/issues"
   },
-  "homepage": "https://github.com/Kronos-Integration/kronos-interceptor-line-parser#readme",
-  "nyc": {
-    "include": [
-      "dist/**/*.js"
-    ],
-    "reporter": [
-      "lcov"
-    ],
-    "report-dir": "./coverage"
-  },
-  "xo": {
-    "space": true
-  },
-  "template": {
-    "repository": {
-      "url": "https://github.com/Kronos-Tools/npm-package-template.git"
-    }
-  }
+  "homepage": "https://github.com/Kronos-Integration/kronos-interceptor-line-parser#readme"
 }
