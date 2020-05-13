@@ -47,12 +47,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kronos-Integration/kronos-interceptor-line-parser.git"
+    "url": "https://github.com/Kronos-Integration/interceptor-line-parser.git"
   },
   "bugs": {
-    "url": "https://github.com/Kronos-Integration/kronos-interceptor-line-parser/issues"
+    "url": "https://github.com/Kronos-Integration/interceptor-line-parser/issues"
   },
-  "homepage": "https://github.com/Kronos-Integration/kronos-interceptor-line-parser#readme",
+  "homepage": "https://github.com/Kronos-Integration/interceptor-line-parser#readme",
   "template": {
     "inheritFrom": [
       "arlac77/template-github",
