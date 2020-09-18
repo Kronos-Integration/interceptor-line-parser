@@ -21,8 +21,7 @@ jobs:
       script: skip
       deploy:
         provider: script
-        script:
-          - npx semantic-release
+        script: npx semantic-release
         cleanup: 'false'
 before_script:
   - npm prune
