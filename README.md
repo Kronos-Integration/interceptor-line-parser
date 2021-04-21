@@ -3,7 +3,7 @@
 [![minified size](https://badgen.net/bundlephobia/min/@kronos-integration/interceptor-line-parser)](https://bundlephobia.com/result?p=@kronos-integration/interceptor-line-parser)
 [![downloads](http://img.shields.io/npm/dm/@kronos-integration/interceptor-line-parser.svg?style=flat-square)](https://npmjs.org/package/@kronos-integration/interceptor-line-parser)
 [![GitHub Issues](https://img.shields.io/github/issues/Kronos-Integration/interceptor-line-parser.svg?style=flat-square)](https://github.com/Kronos-Integration/interceptor-line-parser/issues)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FKronos-Integration%2Finterceptor-line-parser%2Fbadge&style=flat)](https://actions-badge.atrox.dev/Kronos-Integration/interceptor-line-parser/goto)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FKronos-Integration%2Finterceptor-line-parser%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/Kronos-Integration/interceptor-line-parser/goto)
 [![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Known Vulnerabilities](https://snyk.io/test/github/Kronos-Integration/interceptor-line-parser/badge.svg)](https://snyk.io/test/github/Kronos-Integration/interceptor-line-parser)
@@ -15,16 +15,16 @@
 
 ### Table of Contents
 
--   [LineParserInterceptor](#lineparserinterceptor)
--   [Transform](#transform)
--   [constructor](#constructor)
-    -   [Parameters](#parameters)
--   [\_transform](#_transform)
-    -   [Parameters](#parameters-1)
--   [\_flush](#_flush)
-    -   [Parameters](#parameters-2)
--   [\_pushLine](#_pushline)
-    -   [Parameters](#parameters-3)
+*   [LineParserInterceptor](#lineparserinterceptor)
+*   [Transform](#transform)
+*   [constructor](#constructor)
+    *   [Parameters](#parameters)
+*   [\_transform](#\_transform)
+    *   [Parameters](#parameters-1)
+*   [\_flush](#\_flush)
+    *   [Parameters](#parameters-2)
+*   [\_pushLine](#\_pushline)
+    *   [Parameters](#parameters-3)
 
 ## LineParserInterceptor
 
@@ -44,14 +44,14 @@ Creates the line parser and sets the options.
 The following options are supported:
 {
 "allow_new_line_in_cell" : true,
-	"line_separator" : "\\n",
- "quote_char" : '"'
- "skip_empty_lines" : true
+"line_separator" : "\n",
+"quote_char" : '"'
+"skip_empty_lines" : true
 }
 
 ### Parameters
 
--   `opts`   (optional, default `{}`)
+*   `opts`   (optional, default `{}`)
 
 ## \_transform
 
@@ -59,9 +59,9 @@ Reads the stream data and split it into lines.
 
 ### Parameters
 
--   `data`  
--   `enc`  
--   `cb`  
+*   `data`  
+*   `enc`  
+*   `cb`  
 
 ## \_flush
 
@@ -69,7 +69,7 @@ Returns the rest as line
 
 ### Parameters
 
--   `cb`  
+*   `cb`  
 
 ## \_pushLine
 
@@ -77,4 +77,4 @@ Pushes a line object onto the stream
 
 ### Parameters
 
--   `data`  
+*   `data`  
