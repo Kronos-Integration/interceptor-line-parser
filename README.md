@@ -19,11 +19,11 @@
 *   [Transform](#transform)
 *   [constructor](#constructor)
     *   [Parameters](#parameters)
-*   [\_transform](#\_transform)
+*   [\_transform](#_transform)
     *   [Parameters](#parameters-1)
-*   [\_flush](#\_flush)
+*   [\_flush](#_flush)
     *   [Parameters](#parameters-2)
-*   [\_pushLine](#\_pushline)
+*   [\_pushLine](#_pushline)
     *   [Parameters](#parameters-3)
 
 ## LineParserInterceptor
@@ -43,10 +43,10 @@ The out put stream will be an object stream
 Creates the line parser and sets the options.
 The following options are supported:
 {
-"allow_new_line_in_cell" : true,
-"line_separator" : "\n",
-"quote_char" : '"'
-"skip_empty_lines" : true
+"allow\_new\_line\_in\_cell" : true,
+"line\_separator" : "\n",
+"quote\_char" : '"'
+"skip\_empty\_lines" : true
 }
 
 ### Parameters
@@ -59,9 +59,9 @@ Reads the stream data and split it into lines.
 
 ### Parameters
 
-*   `data`  
-*   `enc`  
-*   `cb`  
+*   `data` &#x20;
+*   `enc` &#x20;
+*   `cb` &#x20;
 
 ## \_flush
 
@@ -69,7 +69,7 @@ Returns the rest as line
 
 ### Parameters
 
-*   `cb`  
+*   `cb` &#x20;
 
 ## \_pushLine
 
@@ -77,4 +77,4 @@ Pushes a line object onto the stream
 
 ### Parameters
 
-*   `data`  
+*   `data` &#x20;
